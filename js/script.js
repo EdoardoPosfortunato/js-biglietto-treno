@@ -24,7 +24,7 @@
 
 // Raccolta Dati
 
-let ageString = prompt("Inserire Età")
+let ageString = prompt("Inserire Età del passeggero")
 let ageNum = parseInt(ageString)
 console.log(ageNum) //accertamento che sia un numero
 console.log(`${ageNum} anni`);
@@ -36,7 +36,7 @@ console.log(`${kmString} km di distanza`);
 //Esecuzione Logica
 
 let totalCost = kmString * 0.21
-console.log(`Il biglietto costa ${totalCost} euro`)
+console.log(`Il prezzo pieno del biglietto è di ${totalCost} euro`)
 
 let discount
 
@@ -45,7 +45,20 @@ if (ageNum <= 18){
 } else if (ageNum >= 65){
     discount = totalCost * 0.4
 } else {
-    discount = "niente sconto"
+    discount = 0
 }
 
-console.log(`Lo sconto è di ${discount} euro`)
+totalCost = totalCost - discount
+
+
+//output
+
+if (ageNum <= 18){
+    console.log(`Avendo ${ageNum} anni lo sconto è di ${discount} euro`)
+    console.log(`Il prezzo del biglietto scontato è di ${totalCost} euro`)
+} else if (ageNum >= 65){
+    console.log(`Avendo ${ageNum} anni lo sconto è di ${discount} euro`)
+    console.log(`Il prezzo del biglietto scontato è di ${totalCost} euro`)
+} else {
+    console.log(`Non hai diritto a sconto e il tuo biglietto costerà ${totalCost} euro`)
+}
